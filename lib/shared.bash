@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# This file will contain functions for Rsync Cache, Tarball Cache, S3 Cache and Google Cloud Cache.
-
 # Expand templates (e.g. {{ checksum 'Gemfile.lock' }})
 # If a template cannot be expanded, the function returns a failure code.
 # Args:
@@ -39,7 +37,7 @@ function expand_templates() {
       EXPANDED_VALUE="${BUILDKITE_COMMIT}"
       ;;
     "id"*)
-      EXPANDED_VALUE="${BK_CACHE_ID}"
+      EXPANDED_VALUE="${BK_ZIPSTASH_ID}"
       ;;
     "runner.os"*)
       case $OSTYPE in
