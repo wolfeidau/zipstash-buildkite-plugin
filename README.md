@@ -10,6 +10,7 @@ steps:
     - wolfeidau/zipstash#v0.1.0:
         id: go
         key: "{{ runner.os }}-{{ id }}-{{ checksum 'go.mod' }}"
+        repository: "wolfeidau/s3iofs"
         paths:
           - ~/.cache/go-build
           - ~/go/pkg/mod

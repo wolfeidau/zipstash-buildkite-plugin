@@ -9,6 +9,8 @@ configuration:
       type: string
     key:
       type: string
+    repo:
+      type: string
     paths:
       type: [string, array]
     endpoint:
