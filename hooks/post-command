@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+
+BK_CACHE_BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
+
+source "${BK_CACHE_BASEDIR}/lib/shared.bash"
+
+CACHE_KEY="$(expand_templates "$BUILDKITE_PLUGIN_CACHE_KEY")"
+
+zipstash save \
+  --token-source buildkite \
+  --key "${CACHE_KEY}" \
+  --local_branch="${BUILDKITE_BRANCH}" \
+  --local_repository="${BUILDKITE_REPO}"

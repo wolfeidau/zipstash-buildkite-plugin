@@ -1,0 +1,16 @@
+name: zipstash
+description: zipstash cache plugin for Buildkite. Supports Linux and macOS
+author: https://github.com/wolfeidau
+requirements:
+  - zipstash
+configuration:
+  properties:
+    id:
+      type: string
+    key:
+      type: string
+    paths:
+      type: [string, array]
+    endpoint:
+      type: string
+  additionalProperties: false
