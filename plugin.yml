@@ -12,7 +12,7 @@ configuration:
     repo:
       type: string
     paths:
-      type: [string, array]
+      type: string
     endpoint:
       type: string
   additionalProperties: false
