@@ -14,6 +14,6 @@ zipstash restore \
   --local_branch="${BUILDKITE_BRANCH}" \
   --local_repository="${BUILDKITE_PLUGIN_ZIPSTASH_REPO}" \
   --endpoint "${BUILDKITE_PLUGIN_ZIPSTASH_ENDPOINT}" \
-  --clean "${BUILDKITE_PLUGIN_ZIPSTASH_CLEAN}" \
+  --clean="${BUILDKITE_PLUGIN_ZIPSTASH_CLEAN}" \
   --path "${BUILDKITE_PLUGIN_ZIPSTASH_PATHS}"
 
