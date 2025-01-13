@@ -15,4 +15,3 @@ zipstash save \
   --local_repository="${BUILDKITE_PLUGIN_ZIPSTASH_REPO}" \
   --endpoint "${BUILDKITE_PLUGIN_ZIPSTASH_ENDPOINT}" \
   --path "${BUILDKITE_PLUGIN_ZIPSTASH_PATHS}"
-
