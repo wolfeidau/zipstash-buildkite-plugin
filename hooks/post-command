@@ -3,6 +3,7 @@ set -euo pipefail
 
 BK_ZIPSTASH_BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
 BK_ZIPSTASH_ID="${BUILDKITE_PLUGIN_ZIPSTASH_ID:-}"
+BK_ZIPSTASH_SKIP=${BUILDKITE_PLUGIN_ZIPSTASH_SKIP_SAVE:-false}
 
 source "${BK_ZIPSTASH_BASEDIR}/lib/shared.bash"
 
@@ -14,5 +15,5 @@ zipstash save \
   --local_branch="${BUILDKITE_BRANCH}" \
   --local_repository="${BUILDKITE_PLUGIN_ZIPSTASH_REPO}" \
   --endpoint "${BUILDKITE_PLUGIN_ZIPSTASH_ENDPOINT}" \
-  --skip="${BUILDKITE_PLUGIN_ZIPSTASH_NOSAVE}" \
+  --skip="${BK_ZIPSTASH_SKIP}" \
   --path "${BUILDKITE_PLUGIN_ZIPSTASH_PATHS}"

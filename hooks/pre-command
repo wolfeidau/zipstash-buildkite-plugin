@@ -3,6 +3,7 @@ set -euo pipefail
 
 BK_ZIPSTASH_BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
 BK_ZIPSTASH_ID="${BUILDKITE_PLUGIN_ZIPSTASH_ID:-}"
+BK_ZIPSTASH_CLEAN=${BUILDKITE_PLUGIN_ZIPSTASH_CLEAN:-false}
 
 source "${BK_ZIPSTASH_BASEDIR}/lib/shared.bash"
 
@@ -14,6 +15,6 @@ zipstash restore \
   --local_branch="${BUILDKITE_BRANCH}" \
   --local_repository="${BUILDKITE_PLUGIN_ZIPSTASH_REPO}" \
   --endpoint "${BUILDKITE_PLUGIN_ZIPSTASH_ENDPOINT}" \
-  --clean="${BUILDKITE_PLUGIN_ZIPSTASH_CLEAN}" \
+  --clean="${BK_ZIPSTASH_CLEAN}" \
   --path "${BUILDKITE_PLUGIN_ZIPSTASH_PATHS}"
 

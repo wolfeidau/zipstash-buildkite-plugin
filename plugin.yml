@@ -17,6 +17,6 @@ configuration:
       type: string
     clean:
       type: boolean
-    nosave:
+    skip-save:
       type: boolean
   additionalProperties: false
