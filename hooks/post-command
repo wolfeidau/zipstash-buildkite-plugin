@@ -14,4 +14,5 @@ zipstash save \
   --local_branch="${BUILDKITE_BRANCH}" \
   --local_repository="${BUILDKITE_PLUGIN_ZIPSTASH_REPO}" \
   --endpoint "${BUILDKITE_PLUGIN_ZIPSTASH_ENDPOINT}" \
+  --skip="${BUILDKITE_PLUGIN_ZIPSTASH_SKIP_SAVE}" \
   --path "${BUILDKITE_PLUGIN_ZIPSTASH_PATHS}"
