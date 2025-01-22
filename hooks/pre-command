@@ -12,9 +12,9 @@ CACHE_KEY="$(expand_templates "$BUILDKITE_PLUGIN_ZIPSTASH_KEY")"
 zipstash restore \
   --token-source buildkite \
   --key "${CACHE_KEY}" \
-  --local_branch="${BUILDKITE_BRANCH}" \
-  --local_repository="${BUILDKITE_PLUGIN_ZIPSTASH_REPO}" \
+  --branch="${BUILDKITE_BRANCH}" \
+  --name="${BUILDKITE_PLUGIN_ZIPSTASH_REPO}" \
+  --owner="${BUILDKITE_ORGANIZATION_SLUG}" \
   --endpoint "${BUILDKITE_PLUGIN_ZIPSTASH_ENDPOINT}" \
   --clean="${BK_ZIPSTASH_CLEAN}" \
   --path "${BUILDKITE_PLUGIN_ZIPSTASH_PATHS}"
-
