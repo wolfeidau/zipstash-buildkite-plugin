@@ -9,6 +9,8 @@ configuration:
       type: string
     key:
       type: string
+    fallback-branch:
+      type: string
     repo:
       type: string
     paths:
