@@ -3,7 +3,10 @@ set -euo pipefail
 
 BK_ZIPSTASH_BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
 BK_ZIPSTASH_ID="${BUILDKITE_PLUGIN_ZIPSTASH_ID:-}"
-BK_ZIPSTASH_SKIP=${BUILDKITE_PLUGIN_ZIPSTASH_SKIP_SAVE:-false}
+
+cache_result=$(buildkite-agent meta-data get "zipstash.restore.result")
+
+BK_ZIPSTASH_SKIP=${cache_result:-false}
 
 source "${BK_ZIPSTASH_BASEDIR}/lib/shared.bash"
 
