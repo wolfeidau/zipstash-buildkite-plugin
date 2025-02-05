@@ -1,5 +1,7 @@
 #!/bin/bash
 set -euo pipefail
+set -o lastpipe
+
 
 BK_ZIPSTASH_BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
 BK_ZIPSTASH_ID="${BUILDKITE_PLUGIN_ZIPSTASH_ID:-}"
@@ -19,4 +21,6 @@ zipstash restore \
   --owner="${BUILDKITE_ORGANIZATION_SLUG}" \
   --endpoint "${BUILDKITE_PLUGIN_ZIPSTASH_ENDPOINT}" \
   --clean="${BK_ZIPSTASH_CLEAN}" \
-  --path "${BUILDKITE_PLUGIN_ZIPSTASH_PATHS}"
+  --path "${BUILDKITE_PLUGIN_ZIPSTASH_PATHS}"  | read cache_result
+
+buildkite-agent meta-data set "zipstash.restore.result" "${cache_result}"
