@@ -4,6 +4,7 @@ set -euo pipefail
 BK_ZIPSTASH_BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
 BK_ZIPSTASH_ID="${BUILDKITE_PLUGIN_ZIPSTASH_ID:-}"
 BK_ZIPSTASH_CLEAN=${BUILDKITE_PLUGIN_ZIPSTASH_CLEAN:-false}
+BK_ZIPSTASH_FALLBACK_BRANCH=${BUILDKITE_PLUGIN_ZIPSTASH_FALLBACK_BRANCH:-}
 
 source "${BK_ZIPSTASH_BASEDIR}/lib/shared.bash"
 
@@ -12,7 +13,7 @@ CACHE_KEY="$(expand_templates "$BUILDKITE_PLUGIN_ZIPSTASH_KEY")"
 zipstash restore \
   --token-source buildkite \
   --key "${CACHE_KEY}" \
-  --fallback-branch "${BUILDKITE_PLUGIN_ZIPSTASH_FALLBACK_BRANCH}" \
+  --fallback-branch "${BK_ZIPSTASH_FALLBACK_BRANCH}" \
   --branch="${BUILDKITE_BRANCH}" \
   --name="${BUILDKITE_PLUGIN_ZIPSTASH_REPO}" \
   --owner="${BUILDKITE_ORGANIZATION_SLUG}" \
