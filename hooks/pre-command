@@ -23,6 +23,6 @@ zipstash restore \
   --clean="${BK_ZIPSTASH_CLEAN}" \
   --path "${BUILDKITE_PLUGIN_ZIPSTASH_PATHS}"  | read cache_result
 
-echo "Restored cache: ${cache_result}"
+echo "Cache HIT: ${cache_result}"
 
 buildkite-agent meta-data set "zipstash.restore.$BK_ZIPSTASH_ID.result" "${cache_result}"
