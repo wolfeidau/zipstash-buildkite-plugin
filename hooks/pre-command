@@ -25,4 +25,4 @@ zipstash restore \
 
 echo "Restored cache: ${cache_result}"
 
-buildkite-agent meta-data set "zipstash.restore.result" "${cache_result}"
+buildkite-agent meta-data set "zipstash.restore.$BK_ZIPSTASH_ID.result" "${cache_result}"

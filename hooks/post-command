@@ -4,7 +4,7 @@ set -euo pipefail
 BK_ZIPSTASH_BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
 BK_ZIPSTASH_ID="${BUILDKITE_PLUGIN_ZIPSTASH_ID:-}"
 
-cache_result=$(buildkite-agent meta-data get "zipstash.restore.result")
+cache_result=$(buildkite-agent meta-data get "zipstash.restore.$BK_ZIPSTASH_ID.result")
 
 BK_ZIPSTASH_SKIP=${cache_result:-false}
 
